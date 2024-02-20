@@ -32,7 +32,8 @@ app.get("/filteredimage", async (req, res) => {
     try {
         img = await filterImageFromURL(url);
     } catch (e) {
-        res.status(404).send("Unable to read image");
+        console.log(e);
+        res.status(400).send("Unable to read image");
         return;
     }
     res.sendFile(img);
